@@ -2,7 +2,8 @@ import asyncHandler from '../middleware/asyncHandler.js'
 import Product from '../models/productModel.js'
 
 
-
+//Fetcch all products
+//Routes GET/api/products
 const getProducts =asyncHandler (async(req, res) => {
     const products = await Product.find({})
     res.json(products)
