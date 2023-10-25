@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import colors from "colors";
@@ -11,6 +11,9 @@ const port = process.env.PORT || 5000;
 connectDB();
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.send("API is running...");
