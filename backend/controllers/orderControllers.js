@@ -1,7 +1,7 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import Order from "../models/orderModel.js";
 
-//desc Create new order]
+//desc Create new order
 //@route POST/api/orders
 //access Private
 const addOrderItems = asyncHandler(async (req, res) => {
@@ -18,7 +18,6 @@ const addOrderItems = asyncHandler(async (req, res) => {
   if (orderItems && orderItems.length === 0) {
     res.status(400);
     throw new Error("No order items");
-
   } else {
     const order = new Order({
       orderItems: orderItems.map((x) => ({
