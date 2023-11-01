@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { Badge, Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { FaShoppingCart, FaUser } from "react-icons/fa";
+import logo from "../assets/logo.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
-// import { FaShoppingCart, FaUser } from "react-icons/fa";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -30,14 +31,17 @@ const Header = () => {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand href="/">ProShop</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <img src={logo} alt="ProShop" />
+              ProShop
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
+            <Nav className="ms-auto">
               <LinkContainer to="/cart">
                 <Nav.Link href="/cart">
-                  <i className="fas fa-shopping-cart"></i> Cart
+                  <FaShoppingCart /> Cart
                   {cartItems.length > 0 && (
                     <Badge pill bg="success" style={{ marginLeft: "5px" }}>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
@@ -56,8 +60,8 @@ const Header = () => {
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
-                  <Nav.Link href="/login">
-                    <i className="fas fa-user"></i> Sign In
+                  <Nav.Link>
+                    <FaUser /> Sign In
                   </Nav.Link>
                 </LinkContainer>
               )}
