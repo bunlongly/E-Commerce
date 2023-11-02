@@ -6,11 +6,11 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import './assets/styles/index.css'
+import "./assets/styles/index.css";
 import { Provider } from "react-redux";
 import store from "./store";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import'./assets/styles/bootstrap.custom.css'
+import "./assets/styles/bootstrap.custom.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import PrivateRoute from "./components/PrivateRoute";
@@ -22,6 +22,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScren from "./screens/OrderScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
         <Route path="/shipping" element={<ShippingScreen />} />
         <Route path="/payment" element={<PaymentScreen />} />
         <Route path="/placeorder" element={<PlaceOrderScreen />} />
+        <Route path="/order/:id" element={<OrderScren />} />
       </Route>
     </Route>
   )
