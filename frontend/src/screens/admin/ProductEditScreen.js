@@ -113,7 +113,6 @@ const ProductEditScreen = () => {
               <Form.Label>Price</Form.Label>
               <Form.Control
                 type="number"
-                placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
