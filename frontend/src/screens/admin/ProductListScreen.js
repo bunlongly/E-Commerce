@@ -8,6 +8,7 @@ import {
   useGetProductsQuery,
   useCreateProductMutation,
   useDeleteProductMutation,
+  
 } from "../../slices/productsApiSlice";
 
 const ProductListScreen = () => {
@@ -23,6 +24,7 @@ const ProductListScreen = () => {
     if (window.confirm("Are you sure")) {
       try {
         await deleteProduct(id);
+        toast.success("Product Deleted");
         refetch();
       } catch (err) {
         toast.error(err?.data?.message || err.error);
