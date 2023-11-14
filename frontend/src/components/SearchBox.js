@@ -10,6 +10,8 @@ const SearchBox = () => {
 
   const [keyword, setKeyword] = useState(urlKeyword || "");
 
+  
+
   const submitHandler = (e) => {
     e.preventDefault();
     if (keyword) {
